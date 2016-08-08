@@ -1,1 +1,3 @@
-# my_django_website
+# My Django Website
+
+Python. Django. PostgreSQL. Heroku.
