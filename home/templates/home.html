@@ -4,6 +4,8 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		{% load staticfiles %}
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 		<title>Leo Wajnsztok</title>
 		<!-- Bootstrap -->
@@ -48,6 +50,18 @@
 
 			.keyword-institute {
 				color: #AE81FF;
+			}
+
+			#profile-pic {
+				max-width: 12rem;
+				max-height: 12rem;
+				margin-top: 3rem;
+				margin-bottom: 0;
+			}
+
+			.social-media {
+				margin-top: 6rem;
+				text-align: right;
 			}
 
 		</style>
@@ -98,10 +112,24 @@
 				
 
 				<!-- PAGE HEADER -->
-				<div id="home_header" class="page-header">
+				<div id="home_header" class="page-header col-md-6">
 				  <h2>Leonardo Edelman Wajnsztok</h2>
 				</div>
 				<!-- FIM PAGE HEADER -->
+
+				<!-- REDES SOCIAIS -->
+				<div class="social-media col-md-4">
+					<p><a target="_blank" href="https://mail.google.com/mail/u/0/#inbox?compose=1566e31c8eaa9161">leo.wajnsztok@gmail.com</a></p>
+					<p><a target="_blank" href="https://github.com/leotok">github.com/leotok</a></p>
+					<p><a target="_blank" href="https://br.linkedin.com/in/leonardowajnsztok">linkedin.com</a></p>
+				</div>
+				<!-- FIM REDES SOCIAIS -->
+
+				<!-- FOTO DE PERFIL -->
+				<div class="col-md-2">
+					<img id="profile-pic" class="img-circle" src="{% static 'assets/img/Leo_profile.jpg' %}">
+				</div>
+				<!-- FIM FOTO DE PERFIL -->
 
 				<!-- CURRICULO -->
 				<div class="container-fluid">
