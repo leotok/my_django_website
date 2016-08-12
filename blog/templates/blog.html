@@ -72,6 +72,9 @@
 				text-align: right;
 			}
 
+			.post-text {
+				color: #E6DB74;
+			}
 		</style>
 	</head>
 	<body>
@@ -117,11 +120,46 @@
 		<!-- CONTEUDO -->
 		<div class="container">
 			<div class="row">
+			
+				<div class="col-md-8 col-md-offset-2">
+					
+					<div class="row">
+						<div class="row">
+							{% for p in posts %}
+
+							<div class="row">
+								<div class="col-md-12">
+									<h3 class="page-header">{{p.titulo}}</h3>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-10 col-md-offset-1">
+									<p>{{p.texto | linebreaks }}</p>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-10 col-md-offset-1">
+									<span class="post-text"><p>Autor: {{p.autor}}</p></span>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-10 col-md-offset-1">
+									<span class="post-text"><p>Data de criação: {{p.data_criacao}}</p></span>
+								</div>
+							</div>
+							
+
+							{% endfor %}
+						</div>
+					</div>
+
+				</div>	
+			
+
 				
-
-
-
-				<!-- FIM CURRICULO -->
 
 				<!-- PAGINACAO -->
 				<!-- <nav aria-label="Page navigation">

@@ -10,4 +10,8 @@ from .models import *
 
 def blog(request):
 
-	return render(request, "blog.html")
+	posts = Post.objects.all().order_by("-data_criacao")
+
+	context = { 'posts':posts }
+
+	return render(request, "blog.html", context)
