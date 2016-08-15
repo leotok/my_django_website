@@ -29,7 +29,7 @@
 			body {
 			  padding-top: 60px;
 			  font-family: "menlo";
-			  background: #272822;
+			  background: white;
 			  color: #F8F8E6
 			}
 			@media (max-width: 979px) {
@@ -49,7 +49,7 @@
 			}
 
 			.page-header {
-				color: #F9264B;
+				color: #272822;
 			}
 
 			.keyword-subject {
@@ -73,8 +73,9 @@
 			}
 
 			.post-text {
-				color: #E6DB74;
+				color: #272822;
 			}
+
 		</style>
 	</head>
 	<body>
@@ -125,6 +126,7 @@
 					
 					<div class="row">
 						<div class="row">
+
 							{% for p in posts %}
 
 							<div class="row">
@@ -134,8 +136,8 @@
 							</div>
 							
 							<div class="row">
-								<div class="col-md-10 col-md-offset-1">
-									<p>{{p.texto | linebreaks }}</p>
+								<div class="col-md-10 col-md-offset-1" id="htmPane">
+						            <div class="inner jumbotron editor" id="editor{{forloop.counter0}}">{{p.texto }}</div>
 								</div>
 							</div>
 							
@@ -185,10 +187,12 @@
 			</div>	
 		</div>
 		<!-- FIM CONTEUDO -->
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-
 		<script src= {% static "assets/bootstrap-3.3.7-dist/js/bootstrap.min.js" %}></script>
+		<script src={% static "assets/ace-builds/src-noconflict/ace.js" %} type="text/javascript" charset="utf-8"></script>
+		<script src= {% static "assets/js/blog.js" %}></script>
+
+
 	</body>
 </html>

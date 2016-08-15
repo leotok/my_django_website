@@ -9,4 +9,5 @@ class Post(models.Model):
 	autor 				= models.CharField(max_length=64, null=True, blank=True)
 	texto 				= models.TextField(null=True, blank=True)
 	titulo				= models.TextField(unique=True)
+	codigo				= models.TextField(null=True, blank=True)
 
