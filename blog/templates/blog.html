@@ -76,6 +76,10 @@
 				color: #272822;
 			}
 
+			.post-footer {
+				color: #808080;
+			}
+
 		</style>
 	</head>
 	<body>
@@ -134,22 +138,30 @@
 									<h3 class="page-header">{{p.titulo}}</h3>
 								</div>
 							</div>
-							
+						
+							{% if p.codigo %}
 							<div class="row">
 								<div class="col-md-10 col-md-offset-1" id="htmPane">
-						            <div class="inner jumbotron editor" id="editor{{forloop.counter0}}">{{p.texto }}</div>
+						            <div class="jumbotron editor" id="editor{{forloop.counter0}}">{{p.codigo}}</div>
+								</div>
+							</div>
+							{% endif %}
+
+							<div class="row">
+								<div class="col-md-10 col-md-offset-1" >
+						            <span class="post-text">{{p.texto | linebreaks }}</span>
 								</div>
 							</div>
 							
 							<div class="row">
 								<div class="col-md-10 col-md-offset-1">
-									<span class="post-text"><p>Autor: {{p.autor}}</p></span>
+									<span class="post-footer"><p>Autor: {{p.autor}}</p></span>
 								</div>
 							</div>
 							
 							<div class="row">
 								<div class="col-md-10 col-md-offset-1">
-									<span class="post-text"><p>Data de criação: {{p.data_criacao}}</p></span>
+									<span class="post-footer"><p>Data de criação: {{p.data_criacao}}</p></span>
 								</div>
 							</div>
 							
