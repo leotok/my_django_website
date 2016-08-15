@@ -2,6 +2,14 @@ var i = 0;
 
 $(function() {
 
+	// Konami code
+
+	$( window ).konami({
+        cheat: function() {
+            alert( 'Oi galera #SHALOM #PAZ' );
+        }
+    });
+
 	// Ace - https://ace.c9.io/#nav=howto
 
 	$(".editor").each(function() {
