@@ -6,84 +6,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		{% load staticfiles %}
-		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
 		<title>Leo Wajnsztok</title>
-		<!-- Bootstrap -->
-		
+
 		<link href= {% static "assets/bootstrap-3.3.7-dist/css/bootstrap.min.css" %} rel="stylesheet">
-		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
+		<link href= {% static "blog/stylesheet.css" %} rel="stylesheet">
 
 
-		<style>
-
-			@font-face {
-				font-family: 'menlo';
-				src: url('{% static 'assets/font/Menlo.ttc' %}'), local('{% static 'assets/font/Menlo.ttc' %}');
-			}
-
-			body {
-			  padding-top: 60px;
-			  font-family: "menlo";
-			  background: white;
-			  color: #F8F8E6
-			}
-			@media (max-width: 979px) {
-			  body {
-			    padding-top: 0px;
-			  }
-			}
-
-			li {
-				margin: 0.4rem;
-			}
-
-			#home_header {
-				margin-bottom: 0rem;
-				padding-top: 1rem;
-				color: #5FC7DA;
-			}
-
-			.page-header {
-				color: #272822;
-			}
-
-			.keyword-subject {
-				color: #A6E22E;
-			}
-
-			.keyword-institute {
-				color: #AE81FF;
-			}
-
-			#profile-pic {
-				max-width: 12rem;
-				max-height: 12rem;
-				margin-top: 3rem;
-				margin-bottom: 0;
-			}
-
-			.social-media {
-				margin-top: 6rem;
-				text-align: right;
-			}
-
-			.post-text {
-				color: #272822;
-			}
-
-			.post-footer {
-				color: #808080;
-			}
-
-		</style>
 	</head>
 	<body>
-		<!--  NAVIGATION BAR -->
+
+		<!--  Navigation Bar -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container">
 				<div class="navbar-header">
@@ -121,8 +54,9 @@
 				</div>
 			</div>
 		</nav>
-		<!-- FIM NAVIGATION BAR -->
-		<!-- CONTEUDO -->
+
+		
+		<!-- Blog Content -->
 		<div class="container">
 			<div class="row">
 			
@@ -149,19 +83,21 @@
 
 							<div class="row">
 								<div class="col-md-10 col-md-offset-1" >
-						            <span class="post-text">{{p.texto | linebreaks }}</span>
+									
+						            <span class="post-text">{{p.texto_html | safe }}</span>
+									
 								</div>
 							</div>
 							
 							<div class="row">
 								<div class="col-md-10 col-md-offset-1">
-									<span class="post-footer"><p>Autor: {{p.autor}}</p></span>
+									<span class="post-footer"><p>Author: {{p.autor}}</p></span>
 								</div>
 							</div>
 							
 							<div class="row">
 								<div class="col-md-10 col-md-offset-1">
-									<span class="post-footer"><p>Data de criação: {{p.data_criacao}}</p></span>
+									<span class="post-footer"><p>Written: {{p.data_criacao}}</p></span>
 								</div>
 							</div>
 							
@@ -175,7 +111,7 @@
 
 				
 
-				<!-- PAGINACAO -->
+				<!-- Paginacao -->
 				<!-- <nav aria-label="Page navigation">
 				  <ul class="pagination">
 				    <li>
@@ -195,17 +131,17 @@
 				    </li>
 				  </ul>
 				</nav> -->
-				<!-- FIM PAGINACAO -->
+				
 			</div>	
 		</div>
-		<!-- FIM CONTEUDO -->
 		
+
+		<!-- Scripts -->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script type="text/javascript" src= {% static "assets/bootstrap-3.3.7-dist/js/bootstrap.min.js" %}></script>
 		<script type="text/javascript" src={% static "assets/ace-builds/src-noconflict/ace.js" %} type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" src= {% static "assets/js/blog.js" %}></script>
 		<script type="text/javascript" src= {% static "assets/konami/konami.js" %}></script>
-
 
 	</body>
 </html>
