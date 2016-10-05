@@ -52,7 +52,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'mydjangowebsite.urls'
+ROOT_URLCONF = 'leotok.urls'
 
 TEMPLATES = [
     {
@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'mydjangowebsite.wsgi.application'
+WSGI_APPLICATION = 'leotok.wsgi.application'
 
 
 # Database
