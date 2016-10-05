@@ -15,9 +15,6 @@ def blog(request):
 
 	posts = Post.objects.all().order_by("-data_criacao")
 
-	markdown = mistune.Markdown()
-	markdown(posts)
-
 	context = { 'posts':posts }
 
 	return render(request, "blog.html", context)
