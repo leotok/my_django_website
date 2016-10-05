@@ -1,1 +1,1 @@
-web: gunicorn leotok.wsgi --log-file -
+web: gunicorn mydjangowebsite.wsgi --log-file -
