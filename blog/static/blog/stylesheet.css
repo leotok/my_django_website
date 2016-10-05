@@ -1,8 +1,3 @@
-@font-face {
-	font-family: 'menlo';
-	src: url('{% static 'assets/font/Menlo.ttc' %}'), local('{% static 'assets/font/Menlo.ttc' %}');
-}
-
 body {
   padding-top: 60px;
   font-family: "menlo";
