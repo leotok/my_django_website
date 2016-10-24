@@ -15,8 +15,7 @@ $(function() {
 	$(".editor").each(function() {
 
 		ace.require("ace/ext/language_tools");
-
-		var editor = ace.edit("editor"+i);
+		var editor = ace.edit($(this).attr('id'));
 	    editor.setTheme("ace/theme/monokai");
 	    editor.getSession().setMode("ace/mode/python");
 	    editor.setOptions({
