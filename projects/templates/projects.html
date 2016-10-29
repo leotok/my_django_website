@@ -17,13 +17,39 @@
 				src: url("{% static 'assets/font/Menlo.ttc' %}"), local("{% static 'assets/font/Menlo.ttc' %}");
 			}
 		</style>
-		<link href= {% static "blog/stylesheet.css" %} rel="stylesheet">
+
+		<style>
+			body {
+			  padding-top: 60px;
+			  font-family: "menlo";
+			  background: white;
+			}
+			@media (max-width: 979px) {
+			  body {
+			    padding-top: 0px;
+			  }
+			}
+
+			li {
+				margin: 0.4rem;
+			}
+
+			#home_header {
+				margin-bottom: 0rem;
+				padding-top: 1rem;
+				color: #5FC7DA;
+			}
+
+			.title {
+				color: rgb(255, 57, 124)
+			}
+		</style>
 
 	</head>
 	<body>
 
 		<!--  Navigation Bar -->
-		{% include 'includes/nav-bar.html' with active='blog' %}	
+		{% include 'includes/nav-bar.html' with active='projects' %}		
 
 		
 		<!-- Blog Content -->
@@ -33,47 +59,37 @@
 				<div class="col-md-8 col-md-offset-2 col-xs-12">
 					
 					<div class="row">
-						<div class="row">
-
-							{% for p in posts %}
-
-							<div class="row">
-								<div class="col-xs-12">
-									<h1 class="page-header">{{p.titulo}}</h1>
-								</div>
-							</div>
-						
-							{% if p.codigo %}
-							<div class="row">
-								<div class="col-xs-12 col-md-10 col-md-offset-1" id="htmPane">
-						            <div class="jumbotron editor" id="editor{{forloop.counter0}}">{{p.codigo}}</div>
-								</div>
-							</div>
-							{% endif %}
-
-							<div class="row">
-								<div class="col-xs-12 col-md-10 col-md-offset-1" >
-									
-						            <span class="post-text">{{p.texto_html | default:""  | safe }}</span>
-									
-								</div>
-							</div>
-							
-							<div class="row">
-								<div class="col-xs-12 col-md-10 col-md-offset-1">
-									<span class="post-footer"><p>Author: {{p.autor}}</p></span>
-								</div>
-							</div>
-							
-							<div class="row">
-								<div class="col-xs-12 col-md-10 col-md-offset-1">
-									<span class="post-footer"><p>Written: {{p.data_criacao}}</p></span>
-								</div>
-							</div>
-							
-
-							{% endfor %}
+						<div class="col-sm-12">
+							<h1 class="title">Github Projects</h1>
 						</div>
+					</div>
+
+					<div class="row">
+						{% for proj in projects %}
+
+								<hr>
+
+								<div class="row">
+									<div class="col-md-6 col-sm-12">
+										<a href="{{proj.html_url}}"><h2>{{proj.name}}</h2></a>	
+									</div>
+									<div class="col-md-3 col-sm-6">
+										{% if proj.stargazers_count > 0 %}
+											<h4>{{proj.stargazers_count}} stars</h4>
+										{% endif %}	
+									</div>
+									<div class="col-md-3 col-sm-6">
+										<h4>{{ proj.language | default:'' }}</h4>	
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-12">
+										<p>{{ proj.description | default:'' }}</p>
+									</div>
+								</div>								
+								
+						{% endfor %}
+
 					</div>
 
 				</div>	
@@ -109,8 +125,6 @@
 		<!-- Scripts -->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script type="text/javascript" src= {% static "assets/bootstrap-3.3.7-dist/js/bootstrap.min.js" %}></script>
-		<script type="text/javascript" src={% static "assets/ace-builds/src-noconflict/ace.js" %} type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript" src= {% static "assets/js/blog.js" %}></script>
 		<script type="text/javascript" src= {% static "assets/konami/konami.js" %}></script>
 
 		<!-- Ferramentas de analytics -->

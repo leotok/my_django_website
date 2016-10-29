@@ -40,9 +40,11 @@ INSTALLED_APPS = [
     'generic',
     'home',
     'blog',
+    'projects',
 ]
 
 MIDDLEWARE_CLASSES = [
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -51,6 +53,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
 ]
 
 ROOT_URLCONF = 'mydjangowebsite.urls'
@@ -86,6 +89,14 @@ WSGI_APPLICATION = 'mydjangowebsite.wsgi.application'
 #     }
 DATABASES = {}
 DATABASES['default'] =  dj_database_url.config(default='postgres://sxjgqjihdbqjpv:X7ylMT6aa0Q_jBPzhUMe6o88iu@ec2-54-243-199-161.compute-1.amazonaws.com:5432/dcoj0auhcjegrf')
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'my_cache_table',
+        'TIMEOUT': 300
+    }
+}
 
 
 # Password validation
