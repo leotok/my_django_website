@@ -3,7 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1">
+
 
 		{% load staticfiles %}
 
@@ -65,7 +66,7 @@
 		<div class="container">
 			<div class="row">
 			
-				<div class="col-md-8 col-md-offset-2">
+				<div class="col-md-8 col-md-offset-2 col-xs-12">
 					
 					<div class="row">
 						<div class="row">
@@ -73,21 +74,21 @@
 							{% for p in posts %}
 
 							<div class="row">
-								<div class="col-md-12">
+								<div class="col-xs-12">
 									<h1 class="page-header">{{p.titulo}}</h1>
 								</div>
 							</div>
 						
 							{% if p.codigo %}
 							<div class="row">
-								<div class="col-md-10 col-md-offset-1" id="htmPane">
+								<div class="col-xs-12 col-md-10 col-md-offset-1" id="htmPane">
 						            <div class="jumbotron editor" id="editor{{forloop.counter0}}">{{p.codigo}}</div>
 								</div>
 							</div>
 							{% endif %}
 
 							<div class="row">
-								<div class="col-md-10 col-md-offset-1" >
+								<div class="col-xs-12 col-md-10 col-md-offset-1" >
 									
 						            <span class="post-text">{{p.texto_html | default:""  | safe }}</span>
 									
@@ -95,13 +96,13 @@
 							</div>
 							
 							<div class="row">
-								<div class="col-md-10 col-md-offset-1">
+								<div class="col-xs-12 col-md-10 col-md-offset-1">
 									<span class="post-footer"><p>Author: {{p.autor}}</p></span>
 								</div>
 							</div>
 							
 							<div class="row">
-								<div class="col-md-10 col-md-offset-1">
+								<div class="col-xs-12 col-md-10 col-md-offset-1">
 									<span class="post-footer"><p>Written: {{p.data_criacao}}</p></span>
 								</div>
 							</div>
@@ -147,6 +148,9 @@
 		<script type="text/javascript" src={% static "assets/ace-builds/src-noconflict/ace.js" %} type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" src= {% static "assets/js/blog.js" %}></script>
 		<script type="text/javascript" src= {% static "assets/konami/konami.js" %}></script>
+
+		<!-- Ferramentas de analytics -->
+		{% include 'includes/analytics.html' %}
 
 	</body>
 </html>
